@@ -1,3 +1,3 @@
-#!/user/bin/env bash
+#!/usr/bin/env bash
 
-apt-get install autojump zsh 
+sudo apt-get install autojump zsh 

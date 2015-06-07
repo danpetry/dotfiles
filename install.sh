@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+BASEDIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+
+cd $( dirname "${BASH_SOURCE[0]}"); git submodule update --init
 
 # shell
 ln -s ${BASEDIR}/zsh/antigen/antigen.zsh ~/.antigen.zsh

@@ -17,7 +17,7 @@ zsh-users/zsh-syntax-highlighting
 EOBUNDLES
 
 # Load the theme.
-antigen theme powerline
+antigen theme jeremyFreeAgent/oh-my-zsh-powerline-theme powerline
 
 # Tell antigen that you're done.
 antigen apply
