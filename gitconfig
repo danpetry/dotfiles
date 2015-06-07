@@ -1,0 +1,17 @@
+[user]
+	name = Robin Gower
+	email = robin.git@infonomics.ltd.uk
+[color]
+	ui = auto
+[alias]
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	st = status
+	ls = ls-tree --full-tree -r HEAD
+[push]
+	default = simple
+[heroku]
+	account = personal
+[commit]
+	gpgsign = false
+[core]
+	excludesfile = ~/.gitignore
