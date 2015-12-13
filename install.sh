@@ -17,6 +17,10 @@ vim +PluginInstall +qall
 ln -s ${BASEDIR}/gitconfig ~/.gitconfig
 ln -s ${BASEDIR}/gitignore ~/.gitignore
 
+# emacs
+mkdir ~/.emacs.d
+ln -s ${BASEDIR}/emacs/init.el ~/.emacs.d/init.el
+
 # ruby
 
 # node
