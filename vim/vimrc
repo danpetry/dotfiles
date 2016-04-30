@@ -37,7 +37,7 @@ Plugin 'sheerun/vim-polyglot'
 Plugin 'mileszs/ack.vim'
 
 Plugin 'guns/vim-clojure-static'
-Plugin 'tpope/vim-classpath'
+"Plugin 'tpope/vim-classpath'
 Plugin 'tpope/vim-leiningen'
 Plugin 'tpope/vim-projectionist'
 Plugin 'tpope/vim-dispatch'
@@ -82,6 +82,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_loc_list_height=3
 
 " Number
 set number
@@ -91,6 +92,7 @@ color jellybeans
 
 " NERDtree
 map <leader>n :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " MiniBufExpl
 " If you like <C-TAB> and <C-S-TAB> to switch buffers
@@ -122,9 +124,19 @@ if has('clipboard')
   endif
 endif
 
+" Backup
 set backup                  " Backups are nice ...
+set backupdir=~/.vim/tmp,.
+set directory=~/.vim/tmp,.
 if has('persistent_undo')
   set undofile                " So is persistent undo ...
   set undolevels=1000         " Maximum number of changes that can be undone
   set undoreload=10000        " Maximum number lines to save for undo on a buffer reload
+endif
+
+"Wrap left and right (move over into prev/ next line at ends)
+set whichwrap+=<,>,h,l,[,]
+
+if has("gui_running")
+  set guifont=Liberation\ Mono\ 12
 endif

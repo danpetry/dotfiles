@@ -21,3 +21,10 @@ antigen theme jeremyFreeAgent/oh-my-zsh-powerline-theme powerline
 
 # Tell antigen that you're done.
 antigen apply
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+  PATH="$HOME/bin:$PATH"
+fi
+
+alias o=xdg-open

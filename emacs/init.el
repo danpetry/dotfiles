@@ -22,7 +22,8 @@
 		      slamhound
                       rust-mode
 		      ido-vertical-mode
-		      smex))
+		      smex
+		      sass-mode))
  
 (dolist (p my-packages)
   (unless (package-installed-p p)
@@ -59,22 +60,37 @@
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
 
+; sass-mode
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . sass-mode))
 
 
 ;(require 'smartparens-config)
 ;(show-smartparens-mode 1)
 ;(add-hook 'clojure-mode-hook #'smartparens-strict-mode)
 
+; clojure config
+(setq mouse-yank-at-point t)
 (show-paren-mode 1)
+
+; cider
 (add-hook 'clojure-mode-hook #'paredit-mode)
 (add-hook 'cider-repl-mode-hook #'paredit-mode)
-
-(setq mouse-yank-at-point t)
-
 (setq cider-repl-use-clojure-font-lock t)
+(setq nrepl-log-messages nil)
+(setq nrepl-hide-special-buffers t)
+
 
 ;; Slow down mouse scroll
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
+
+;; Horizontal mouse scrolling
+(global-set-key (kbd "<mouse-7>") (lambda () (interactive) (scroll-left 1)))
+(global-set-key (kbd "<mouse-6>") (lambda () (interactive) (scroll-right 1)))
+(global-set-key (kbd "<double-mouse-7>") (lambda () (interactive) (scroll-left 2)))
+(global-set-key (kbd "<double-mouse-6>") (lambda () (interactive) (scroll-right 2)))
+(global-set-key (kbd "<triple-mouse-7>") (lambda () (interactive) (scroll-left 3)))
+(global-set-key (kbd "<triple-mouse-6>") (lambda () (interactive) (scroll-right 3)))
+
 
 ;; Smoother scrolling
 (setq redisplay-dont-pause t)
@@ -84,6 +100,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(cider-boot-parameters "cider repl -s wait")
  '(safe-local-variable-values
    (quote
     ((eval font-lock-add-keywords nil
@@ -105,4 +122,5 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Nimbus Mono L" :foundry "urw" :slant normal :weight normal :height 109 :width normal)))))
+ '(default ((t (:inherit nil :stipple nil :background "#FFFFFF" :foreground "#333333" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 102 :width normal :foundry "unknown" :family "Inconsolata"))))
+ '(variable-pitch ((t (:family "Liberation Sans")))))
