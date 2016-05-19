@@ -78,7 +78,7 @@
 (setq cider-repl-use-clojure-font-lock t)
 (setq nrepl-log-messages nil)
 (setq nrepl-hide-special-buffers t)
-
+(setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
 
 ;; Slow down mouse scroll
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
