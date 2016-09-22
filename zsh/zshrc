@@ -28,3 +28,5 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 alias o=xdg-open
+
+autoload -U zmv
