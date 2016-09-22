@@ -23,7 +23,10 @@
                       rust-mode
 		      ido-vertical-mode
 		      smex
-		      sass-mode))
+		      sass-mode
+		      yaml-mode
+		      inf-ruby
+		      alchemist))
  
 (dolist (p my-packages)
   (unless (package-installed-p p)
