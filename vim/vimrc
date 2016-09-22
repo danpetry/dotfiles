@@ -137,6 +137,9 @@ endif
 "Wrap left and right (move over into prev/ next line at ends)
 set whichwrap+=<,>,h,l,[,]
 
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
+
 if has("gui_running")
   set guifont=Liberation\ Mono\ 12
 endif
