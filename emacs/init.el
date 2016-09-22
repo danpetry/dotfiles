@@ -104,6 +104,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(cider-boot-parameters "cider repl -s wait")
+ '(inhibit-startup-screen t)
  '(safe-local-variable-values
    (quote
     ((eval font-lock-add-keywords nil
