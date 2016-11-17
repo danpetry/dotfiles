@@ -90,6 +90,12 @@
 (setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
 
 
+;; IPython `C-c !` to start `C-c |` to execute region 
+;;(require 'ein)
+(require 'python)
+(setq python-shell-interpreter "ipython")
+
+
 ;; Rust
 ;; http://julienblanchard.com/2016/fancy-rust-development-with-emacs/
 
