@@ -21,12 +21,15 @@
 		      helm
 		      slamhound
                       rust-mode
+		      cargo
 		      ido-vertical-mode
 		      smex
 		      sass-mode
 		      yaml-mode
 		      inf-ruby
-		      alchemist))
+		      alchemist
+		      flycheck
+		      flycheck-rust))
  
 (dolist (p my-packages)
   (unless (package-installed-p p)
@@ -54,6 +57,8 @@
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
 ;(require 'helm-config)
 ;(helm-mode 1)
 
@@ -62,6 +67,7 @@
 
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
+
 
 ; sass-mode
 (add-to-list 'auto-mode-alist '("\\.scss\\'" . sass-mode))
@@ -82,6 +88,19 @@
 (setq nrepl-log-messages nil)
 (setq nrepl-hide-special-buffers t)
 (setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
+
+
+;; Rust
+;; http://julienblanchard.com/2016/fancy-rust-development-with-emacs/
+
+(add-hook 'rust-mode-hook 'cargo-minor-mode) ;; https://github.com/kwrooijen/cargo.el
+(add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
+
+;; http://emacsist.com/10425
+;;(add-hook 'rust-mode-hook
+;;	  '(lambda ()
+;;	     (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
+
 
 ;; Slow down mouse scroll
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
