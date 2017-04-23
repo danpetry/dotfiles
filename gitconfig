@@ -9,6 +9,7 @@
 	ls = ls-tree --full-tree -r HEAD
 [push]
 	default = simple
+	followTags = true
 [heroku]
 	account = personal
 [commit]
