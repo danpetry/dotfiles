@@ -34,6 +34,10 @@ autoload -U zmv
 # https://github.com/rust-lang-nursery/rustup.rs#enable-tab-completion-for-bash-fish-or-zsh
 fpath+=~/.zfunc
 
+
+# https://docs.docker.com/compose/completion/#zsh
+autoload -Uz compinit && compinit -i
+
 # http://boredzo.org/blog/archives/2016-08-15/colorized-man-pages-understood-and-customized
 man() {
     env \
