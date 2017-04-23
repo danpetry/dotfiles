@@ -51,4 +51,6 @@ man() {
             man "$@"
 }
 
+export PATH="$HOME/.cargo/bin:$PATH"
+
 . /usr/share/autojump/autojump.sh
