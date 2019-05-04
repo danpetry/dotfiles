@@ -120,6 +120,11 @@ endif
 
 set exrc
 set secure
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
 call plug#begin()
 Plug 'tpope/vim-sensible'
@@ -128,5 +133,5 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'cofyc/vim-uncrustify'
 Plug 'WolfgangMehner/c-support'
 Plug 'Glench/Vim-Jinja2-Syntax'
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
 call plug#end()
